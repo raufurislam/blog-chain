@@ -1,5 +1,5 @@
 {
-  "name": "next-blog",
+  "name": "blog-chain",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -9,9 +9,9 @@
     "start": "node dist/server.js"
   },
   "keywords": [],
-  "author": "Next Level Web Development",
+  "author": "Raufur Islam Nayem <raufurislam@gmail.com>",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "description": "",
   "dependencies": {
     "@prisma/client": "^6.16.1",
