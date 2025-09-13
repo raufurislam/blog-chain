@@ -4,3 +4,4 @@ dist
 build
 .log
 .logger
+/src/generated/prisma
