@@ -11,7 +11,7 @@
   "keywords": [],
   "author": "Raufur Islam Nayem <raufurislam@gmail.com>",
   "license": "ISC",
-  "type": "module",
+  "type": "commonjs",
   "description": "",
   "dependencies": {
     "@prisma/client": "^6.16.1",
