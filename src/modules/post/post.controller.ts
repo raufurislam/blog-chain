@@ -10,4 +10,49 @@ const createPost = async (req: Request, res: Response) => {
   }
 };
 
-export const PostController = { createPost };
+const getAllPosts = async (req: Request, res: Response) => {
+  try {
+    const result = await PostService.getAllPosts();
+    res.status(201).json(result);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
+const getPostById = async (req: Request, res: Response) => {
+  try {
+    const result = await PostService.getPostById(Number(req.params.id));
+    res.status(201).json(result);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
+const updatePost = async (req: Request, res: Response) => {
+  try {
+    const result = await PostService.updatePost(
+      Number(req.params.id),
+      req.body
+    );
+    res.status(201).json(result);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
+const deletePost = async (req: Request, res: Response) => {
+  try {
+    const result = await PostService.deletePost(Number(req.params.id));
+    res.status(201).json(result);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
+export const PostController = {
+  createPost,
+  getAllPosts,
+  getPostById,
+  updatePost,
+  deletePost,
+};
