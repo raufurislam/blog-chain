@@ -40,4 +40,7 @@ const authWithGoogle = async (data: Prisma.UserCreateInput) => {
   }
 };
 
-export const AuthService = { loginWithEmailAndPassword, authWithGoogle };
+export const AuthService = {
+  loginWithEmailAndPassword,
+  authWithGoogle,
+};

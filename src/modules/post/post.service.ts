@@ -130,10 +130,50 @@ const deletePost = async (id: number) => {
   return result;
 };
 
+const getBlogStat = async () => {
+  return await prisma.$transaction(async (tx) => {
+    const aggregate = await tx.post.aggregate({
+      _count: true,
+      _sum: { views: true },
+      _avg: { views: true },
+      _max: { views: true },
+      _min: { views: true },
+    });
+
+    const featuredCount = await tx.post.count({
+      where: {
+        isFeatured: true,
+      },
+    });
+
+    const topFeatured = await tx.post.findFirst({
+      where: {
+        isFeatured: true,
+      },
+      orderBy: { views: "desc" },
+    });
+
+    return {
+      stats: {
+        totalPost: aggregate._count ?? 0,
+        totalViews: aggregate._sum.views ?? 0,
+        avgViews: aggregate._avg.views ?? 0,
+        maxViews: aggregate._max.views ?? 0,
+        minViews: aggregate._min.views ?? 0,
+      },
+      featured: {
+        count: featuredCount,
+        topPost: topFeatured,
+      },
+    };
+  });
+};
+
 export const PostService = {
   createPost,
   getAllPosts,
   getPostById,
   updatePost,
   deletePost,
+  getBlogStat,
 };
