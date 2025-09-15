@@ -43,8 +43,6 @@ const getAllPosts = async ({
 }) => {
   const skip = (page - 1) * limit;
 
-  console.log({ tags });
-
   const where: any = {
     AND: [
       search && {
@@ -55,7 +53,6 @@ const getAllPosts = async ({
       },
       typeof isFeatured === "boolean" && { isFeatured },
       tags && tags.length > 0 && { tags: { hasEvery: tags } },
-      // tags && tags.length > 0 && { tags: { hasSome: tags } },
     ].filter(Boolean),
   };
 
@@ -63,13 +60,23 @@ const getAllPosts = async ({
     skip,
     take: limit,
     where,
+
+    // TASK:1 make sort dynamic (title, createdAt, updatedAT, etc...)
     orderBy: {
       createdAt: "desc",
     },
   });
 
+  const total = await prisma.post.count({ where });
+
   return {
     data: result,
+    pagination: {
+      page,
+      limit,
+      total,
+      totalPages: Math.ceil(total / limit),
+    },
   };
 };
 
