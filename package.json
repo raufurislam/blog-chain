@@ -1,5 +1,5 @@
 {
-  "name": "blog-chain",
+  "name": "blog-chain-server",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "start": "node dist/server.js"
   },
   "keywords": [],
-  "author": "Raufur Islam Nayem <raufurislam@gmail.com>",
+  "author": "Raufur Islam Nayem <github.com/raufurislam>",
   "license": "ISC",
   "type": "commonjs",
   "description": "",
