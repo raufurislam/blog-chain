@@ -60,6 +60,19 @@ const getAllPosts = async ({
     skip,
     take: limit,
     where,
+    include: {
+      author: {
+        select: {
+          id: true,
+          name: true,
+          email: true,
+          role: true,
+          phone: true,
+          pictures: true,
+          createdAt: true,
+        },
+      },
+    },
 
     // TASK:1 make sort dynamic (title, createdAt, updatedAT, etc...)
     orderBy: {
@@ -81,10 +94,21 @@ const getAllPosts = async ({
 };
 
 const getPostById = async (id: number) => {
-  const result = await prisma.post.findFirstOrThrow({
-    where: {
-      id,
-    },
+  const result = await prisma.$transaction(async (tx) => {
+    await tx.post.update({
+      where: { id },
+      data: {
+        views: {
+          increment: 1,
+        },
+      },
+    });
+    const postData = await tx.post.findFirstOrThrow({
+      where: {
+        id,
+      },
+    });
+    return postData;
   });
   return result;
 };
