@@ -1,18 +1,29 @@
 import { Post, Prisma } from "@prisma/client";
 import { prisma } from "../../config/db";
 
+// const createPost = async (payload: Prisma.PostCreateInput): Promise<Post> => {
+//   const tags = Array.isArray(payload.tags) // ✅ check if it's actually a string[]
+//     ? payload.tags.map((tag: string) => tag.toLowerCase())
+//     : payload.tags;
+
+//   const result = await prisma.post.create({
+//     data: {
+//       ...payload,
+//       tags, // safe to assign now
+//     },
+//     include: {
+//       author: {
+//         select: { id: true, name: true, email: true },
+//       },
+//     },
+//   });
+//   return result;
+// };
+
 const createPost = async (payload: Prisma.PostCreateInput): Promise<Post> => {
   const result = await prisma.post.create({
     data: payload,
-    include: {
-      author: {
-        select: {
-          id: true,
-          name: true,
-          email: true,
-        },
-      },
-    },
+    include: { author: { select: { id: true, name: true, email: true } } },
   });
   return result;
 };
@@ -32,6 +43,8 @@ const getAllPosts = async ({
 }) => {
   const skip = (page - 1) * limit;
 
+  console.log({ tags });
+
   const where: any = {
     AND: [
       search && {
@@ -41,6 +54,8 @@ const getAllPosts = async ({
         ],
       },
       typeof isFeatured === "boolean" && { isFeatured },
+      tags && tags.length > 0 && { tags: { hasEvery: tags } },
+      // tags && tags.length > 0 && { tags: { hasSome: tags } },
     ].filter(Boolean),
   };
 
