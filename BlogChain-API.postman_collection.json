@@ -1,0 +1,356 @@
+{
+  "info": {
+    "_postman_id": "a5fe41ce-16ab-424b-abc2-d3a5b793ebef",
+    "name": "Blog Chain",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "45554881",
+    "_collection_link": "https://raufurislam.postman.co/workspace/raufurislam's-Workspace~f3add14f-0cd0-4018-875f-c9fbff9baba5/collection/45554881-a5fe41ce-16ab-424b-abc2-d3a5b793ebef?action=share&source=collection_link&creator=45554881"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login with email and password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODk4ZWFhM2ZjOTczZDJmNmEwYzk2ZTYiLCJlbWFpbCI6InN1cGVyQGdtYWlsLmNvbSIsInJvbGUiOiJTVVBFUl9BRE1JTiIsImlhdCI6MTc1NzI3NjQxMSwiZXhwIjoxNzU3MzYyODExfQ.tsIZ17MbN_kXmM2OtADdun0abNbH8US0sr04f2ysXuU",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"raufur1@gmail.com\",\r\n    \"password\": \"753951Bd@\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/auth/login",
+              "host": ["{{URL}}"],
+              "path": ["auth", "login"],
+              "query": [
+                {
+                  "key": "field",
+                  "value": "timestamps",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Create User Copy",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODk4ZWFhM2ZjOTczZDJmNmEwYzk2ZTYiLCJlbWFpbCI6InN1cGVyQGdtYWlsLmNvbSIsInJvbGUiOiJTVVBFUl9BRE1JTiIsImlhdCI6MTc1NzI3NjQxMSwiZXhwIjoxNzU3MzYyODExfQ.tsIZ17MbN_kXmM2OtADdun0abNbH8US0sr04f2ysXuU",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Raufur\",\r\n    \"email\": \"raufur1@gmail.com\",\r\n    \"password\": \"753951Bd@\",\r\n    \"phone\": \"+8801648068834\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/user",
+              "host": ["{{URL}}"],
+              "path": ["user"],
+              "query": [
+                {
+                  "key": "field",
+                  "value": "timestamps",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All User From DB",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODk4ZWFhM2ZjOTczZDJmNmEwYzk2ZTYiLCJlbWFpbCI6InN1cGVyQGdtYWlsLmNvbSIsInJvbGUiOiJTVVBFUl9BRE1JTiIsImlhdCI6MTc1NzI3NjQxMSwiZXhwIjoxNzU3MzYyODExfQ.tsIZ17MbN_kXmM2OtADdun0abNbH8US0sr04f2ysXuU",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{URL}}/user",
+              "host": ["{{URL}}"],
+              "path": ["user"],
+              "query": [
+                {
+                  "key": "field",
+                  "value": "timestamps",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get single user by Id From DB Copy",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODk4ZWFhM2ZjOTczZDJmNmEwYzk2ZTYiLCJlbWFpbCI6InN1cGVyQGdtYWlsLmNvbSIsInJvbGUiOiJTVVBFUl9BRE1JTiIsImlhdCI6MTc1NzI3NjQxMSwiZXhwIjoxNzU3MzYyODExfQ.tsIZ17MbN_kXmM2OtADdun0abNbH8US0sr04f2ysXuU",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{URL}}/user/10",
+              "host": ["{{URL}}"],
+              "path": ["user", "10"],
+              "query": [
+                {
+                  "key": "field",
+                  "value": "timestamps",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Single User By Id",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODk4ZWFhM2ZjOTczZDJmNmEwYzk2ZTYiLCJlbWFpbCI6InN1cGVyQGdtYWlsLmNvbSIsInJvbGUiOiJTVVBFUl9BRE1JTiIsImlhdCI6MTc1NzI3NjQxMSwiZXhwIjoxNzU3MzYyODExfQ.tsIZ17MbN_kXmM2OtADdun0abNbH8US0sr04f2ysXuU",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{URL}}/user/10",
+              "host": ["{{URL}}"],
+              "path": ["user", "10"],
+              "query": [
+                {
+                  "key": "field",
+                  "value": "timestamps",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODk4ZWFhM2ZjOTczZDJmNmEwYzk2ZTYiLCJlbWFpbCI6InN1cGVyQGdtYWlsLmNvbSIsInJvbGUiOiJTVVBFUl9BRE1JTiIsImlhdCI6MTc1NzI3NjQxMSwiZXhwIjoxNzU3MzYyODExfQ.tsIZ17MbN_kXmM2OtADdun0abNbH8US0sr04f2ysXuU",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Raufur Islam\",\r\n    \"email\": \"raufurislam@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/user/1",
+              "host": ["{{URL}}"],
+              "path": ["user", "1"],
+              "query": [
+                {
+                  "key": "field",
+                  "value": "timestamps",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Post",
+      "item": [
+        {
+          "name": "Create post",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Next.js for Beginners\",\r\n    \"content\": \"Getting started with building full-stack apps using Next.js.\",\r\n    \"thumbnail\": \"https://picsum.photos/seed/post12/400/250\",\r\n    \"tags\": [\r\n        \"Next.js\",\r\n        \"React\",\r\n        \"Full-Stack\"\r\n    ],\r\n    \"isFeatured\": false,\r\n    \"authorId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/post",
+              "host": ["{{URL}}"],
+              "path": ["post"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Post",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/post",
+              "host": ["{{URL}}"],
+              "path": ["post"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "3",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "Understanding the differences",
+                  "disabled": true
+                },
+                {
+                  "key": "isFeatured",
+                  "value": "false",
+                  "disabled": true
+                },
+                {
+                  "key": "tags",
+                  "value": "Programming",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Post By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/post/1",
+              "host": ["{{URL}}"],
+              "path": ["post", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Post By Id",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": 3\r\n    // \"title\": \"Getting Started with Prisma\",\r\n    // \"tags\": [\r\n    //     \"Prisma\",\r\n    //     \"Node.js\",\r\n    //     \"Database\",\r\n    //     \"Postgresql\"\r\n    // ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/post/4",
+              "host": ["{{URL}}"],
+              "path": ["post", "4"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Post By Id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/post/3",
+              "host": ["{{URL}}"],
+              "path": ["post", "3"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get blog stat",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/post/stats",
+              "host": ["{{URL}}"],
+              "path": ["post", "stats"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "URL",
+      "value": ""
+    }
+  ]
+}
