@@ -2,6 +2,7 @@
   "name": "blog-chain-server",
   "version": "1.0.0",
   "main": "index.js",
+  "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
@@ -12,7 +13,6 @@
   "author": "Raufur Islam Nayem <github.com/raufurislam>",
   "license": "ISC",
   "type": "commonjs",
-  "description": "",
   "dependencies": {
     "@prisma/client": "^6.16.1",
     "compression": "^1.8.1",
@@ -27,7 +27,7 @@
     "@types/express": "^5.0.3",
     "@types/node": "^24.2.0",
     "dotenv": "^17.2.2",
-    "prisma": "^6.16.1",
+    "prisma": "^6.16.2",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2"
   }

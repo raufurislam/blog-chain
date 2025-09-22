@@ -5,8 +5,11 @@ const createUser = async (req: Request, res: Response) => {
   try {
     const result = await UserService.createUser(req.body);
     res.status(201).json(result);
-  } catch (error) {
-    res.status(500).send(error);
+  } catch (error: any) {
+    const statusCode = error.statusCode || 500;
+    const message = error.message || "Internal server error";
+
+    res.status(statusCode).json({ statusCode, message });
   }
 };
 

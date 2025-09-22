@@ -104,9 +104,8 @@ const getPostById = async (id: number) => {
       },
     });
     const postData = await tx.post.findFirstOrThrow({
-      where: {
-        id,
-      },
+      where: { id },
+      include: { author: true },
     });
     return postData;
   });

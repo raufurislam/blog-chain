@@ -1,8 +1,16 @@
 import { Prisma, User } from "@prisma/client";
 import { prisma } from "../../config/db";
+import AppError from "../../errorHelpers/AppError";
 
 const createUser = async (payload: Prisma.UserCreateInput): Promise<User> => {
-  // console.log(payload);
+  // console.log({ payload });
+  const isUserExist = await prisma.user.findUnique({
+    where: { email: payload.email },
+  });
+
+  if (isUserExist) {
+    throw new AppError(400, "User already exist");
+  }
   const createdUser = await prisma.user.create({
     data: payload,
   });
